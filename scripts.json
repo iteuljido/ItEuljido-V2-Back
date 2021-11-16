@@ -4,8 +4,7 @@
     "start": {
       "cmd": "deno run server.ts",
       "desc": "run my server.ts file",
-      "allow": ["env", "net", "run"],
-      "log": "info"
+      "allow": ["env", "net", "run"]
     }
   }
 }

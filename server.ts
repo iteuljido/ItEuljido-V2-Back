@@ -1,5 +1,6 @@
 import { Application, green, yellow } from "./deps.ts";
-import routes from "./routes/index.ts";
+import controllers from "./controllers/index.ts";
+import { errorHandle } from "./middlewares/errors.middleware.ts";
 
 const app = new Application();
 const port = 8080;
@@ -13,7 +14,8 @@ app.addEventListener("listen", ({ secure, hostname, port }) => {
   console.log(`${yellow("Listening on:")} ${green(url)}`);
 });
 
-app.use(routes.routes());
-app.use(routes.allowedMethods());
+app.use(errorHandle);
+app.use(controllers.routes());
+app.use(controllers.allowedMethods());
 
 await app.listen({ port });
