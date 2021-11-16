@@ -17,20 +17,23 @@ export type AuthUser = {
   profile_image: string;
 
   /** short description */
-  description: string;
+  description: string | null;
 
   /** generation */
-  generation: number;
+  generation: number | null;
 
   /** department */
-  department: UserDepartment;
+  department: UserDepartment | null;
 
   /** user school */
-  school: UserSchool;
+  school: UserSchool | null;
 
   /** sex */
-  sex: UserSex;
+  sex: UserSex | null;
 
   /** user role */
-  role: UserRole;
+  role: UserRole | null;
+
+  /** authorized */
+  is_authorized: boolean;
 };
