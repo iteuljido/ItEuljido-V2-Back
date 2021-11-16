@@ -16,7 +16,7 @@ const getErrorMessage = (errors: ValidationErrors): string | undefined => {
 /**
  * @description request body, query가 일치하는지 검사 한다.
  */
-const requestValidator = ({
+export const requestValidator = ({
   body: bodyRules,
   query: queryRules
 }: {
@@ -51,5 +51,3 @@ const requestValidator = ({
     await next();
   };
 };
-
-export { requestValidator };

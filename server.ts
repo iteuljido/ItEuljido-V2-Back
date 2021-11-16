@@ -1,6 +1,7 @@
 import { Application, green, yellow } from "./deps.ts";
 import controllers from "./controllers/index.ts";
 import { errorHandle } from "./middlewares/errors.middleware.ts";
+import { sync } from "./database.ts";
 
 const app = new Application();
 const port = 8080;
@@ -12,6 +13,8 @@ app.addEventListener("listen", ({ secure, hostname, port }) => {
   const url = `${protocol}${host ?? "localhost"}:${port}`;
 
   console.log(`${yellow("Listening on:")} ${green(url)}`);
+
+  sync();
 });
 
 app.use(errorHandle);
